@@ -45,8 +45,7 @@ class HelloWorldSkill(MycroftSkill):
         the skills.log file."""
         url = 'https://v5.db.transport.rest/stops/785901/arrivals?duration=30&results=4'
         r = requests.get(url)
-        json_output = r.json()
-        output = json_output["data"]
+        output = r.json()
         times = []
         for bus in output:
             if bus.provenance == "Wernerwerkstraße, Regensburg":
