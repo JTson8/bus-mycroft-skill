@@ -48,8 +48,8 @@ class HelloWorldSkill(MycroftSkill):
         output = r.json()
         times = []
         for bus in output:
-            if bus.provenance == "Wernerwerkstraße, Regensburg":
-                times.append(nice_time(datetime.strptime(bus.when, '%Y-%m-%dT%X')))
+            if bus["provenance"] == "Wernerwerkstraße, Regensburg":
+                times.append(nice_time(datetime.strptime(bus["when"], '%Y-%m-%dT%X')))
 
         if len(times) > 1:
             self.speak_dialog("There will be a bus eleven arriving at " + times[0] + " and " + times[1])
